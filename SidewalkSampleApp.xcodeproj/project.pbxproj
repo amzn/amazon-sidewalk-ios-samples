@@ -1,0 +1,446 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1E7E6F2E25402BBA00DBCEAB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7E6F2D25402BBA00DBCEAB /* Security.framework */; };
+		1E7E6F3025402BBE00DBCEAB /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7E6F2F25402BBE00DBCEAB /* SafariServices.framework */; };
+		399C16D62863293E00881B34 /* ScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C16C42863293E00881B34 /* ScanViewModel.swift */; };
+		399C16D72863293E00881B34 /* ConnectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C16C52863293E00881B34 /* ConnectionViewModel.swift */; };
+		399C16D82863293E00881B34 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C16C62863293E00881B34 /* MenuViewModel.swift */; };
+		399C16D92863293E00881B34 /* DeregisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C16C72863293E00881B34 /* DeregisterViewModel.swift */; };
+		399C16DA2863293E00881B34 /* AmazonAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C16C82863293E00881B34 /* AmazonAuthService.swift */; };
+		399C16DB2863293E00881B34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 399C16C92863293E00881B34 /* Assets.xcassets */; };
+		399C16DC2863293E00881B34 /* SimpleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C16CA2863293E00881B34 /* SimpleLogger.swift */; };
+		399C16DD2863293E00881B34 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 399C16CC2863293E00881B34 /* Preview Assets.xcassets */; };
+		399C16DE2863293E00881B34 /* SidewalkEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C16CD2863293E00881B34 /* SidewalkEnvironment.swift */; };
+		399C16DF2863293E00881B34 /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C16CF2863293E00881B34 /* ScanView.swift */; };
+		399C16E02863293E00881B34 /* DeregisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C16D02863293E00881B34 /* DeregisterView.swift */; };
+		399C16E12863293E00881B34 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C16D12863293E00881B34 /* ConnectionView.swift */; };
+		399C16E22863293E00881B34 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C16D22863293E00881B34 /* MenuView.swift */; };
+		399C16E32863293E00881B34 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C16D32863293E00881B34 /* LoadingView.swift */; };
+		399C16E42863293E00881B34 /* SidewalkSampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C16D42863293E00881B34 /* SidewalkSampleApp.swift */; };
+		4802D62A2942C63500E5AB53 /* OpenSSL.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4802D6292942C63400E5AB53 /* OpenSSL.xcframework */; };
+		4802D62B2942C63500E5AB53 /* OpenSSL.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4802D6292942C63400E5AB53 /* OpenSSL.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		48AEB09A299CC65E00AEA082 /* LoginWithAmazon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48AEB099299CC65D00AEA082 /* LoginWithAmazon.framework */; };
+		FD333D7E2994CE4C0098E064 /* CoverageTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD333D7D2994CE4C0098E064 /* CoverageTestView.swift */; };
+		FD333D802994CE6E0098E064 /* CoverageTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD333D7F2994CE6E0098E064 /* CoverageTestViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1E13203B25B09FC8009F73A0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4802D62B2942C63500E5AB53 /* OpenSSL.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1E7E6F2D25402BBA00DBCEAB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		1E7E6F2F25402BBE00DBCEAB /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		1E9E39E324EA8B3300F3CE47 /* SidewalkSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SidewalkSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		399C16C42863293E00881B34 /* ScanViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewModel.swift; sourceTree = "<group>"; };
+		399C16C52863293E00881B34 /* ConnectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionViewModel.swift; sourceTree = "<group>"; };
+		399C16C62863293E00881B34 /* MenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		399C16C72863293E00881B34 /* DeregisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeregisterViewModel.swift; sourceTree = "<group>"; };
+		399C16C82863293E00881B34 /* AmazonAuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmazonAuthService.swift; sourceTree = "<group>"; };
+		399C16C92863293E00881B34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		399C16CA2863293E00881B34 /* SimpleLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleLogger.swift; sourceTree = "<group>"; };
+		399C16CC2863293E00881B34 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		399C16CD2863293E00881B34 /* SidewalkEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidewalkEnvironment.swift; sourceTree = "<group>"; };
+		399C16CF2863293E00881B34 /* ScanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
+		399C16D02863293E00881B34 /* DeregisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeregisterView.swift; sourceTree = "<group>"; };
+		399C16D12863293E00881B34 /* ConnectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
+		399C16D22863293E00881B34 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		399C16D32863293E00881B34 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		399C16D42863293E00881B34 /* SidewalkSampleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidewalkSampleApp.swift; sourceTree = "<group>"; };
+		399C16D52863293E00881B34 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4802D6292942C63400E5AB53 /* OpenSSL.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = OpenSSL.xcframework; path = Frameworks/OpenSSL.xcframework; sourceTree = "<group>"; };
+		48AEB099299CC65D00AEA082 /* LoginWithAmazon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LoginWithAmazon.framework; path = Frameworks/LoginWithAmazon.framework; sourceTree = "<group>"; };
+		FD333D7D2994CE4C0098E064 /* CoverageTestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverageTestView.swift; sourceTree = "<group>"; };
+		FD333D7F2994CE6E0098E064 /* CoverageTestViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverageTestViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1E9E39E024EA8B3300F3CE47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4802D62A2942C63500E5AB53 /* OpenSSL.xcframework in Frameworks */,
+				1E7E6F3025402BBE00DBCEAB /* SafariServices.framework in Frameworks */,
+				1E7E6F2E25402BBA00DBCEAB /* Security.framework in Frameworks */,
+				48AEB09A299CC65E00AEA082 /* LoginWithAmazon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0F4F4A6AABEB9E4083A0AE49 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				48AEB099299CC65D00AEA082 /* LoginWithAmazon.framework */,
+				4802D6292942C63400E5AB53 /* OpenSSL.xcframework */,
+				1E7E6F2F25402BBE00DBCEAB /* SafariServices.framework */,
+				1E7E6F2D25402BBA00DBCEAB /* Security.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1E9E39DA24EA8B3300F3CE47 = {
+			isa = PBXGroup;
+			children = (
+				399C16C22863293E00881B34 /* SidewalkSampleApp */,
+				1E9E39E424EA8B3300F3CE47 /* Products */,
+				0F4F4A6AABEB9E4083A0AE49 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1E9E39E424EA8B3300F3CE47 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1E9E39E324EA8B3300F3CE47 /* SidewalkSampleApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		399C16C22863293E00881B34 /* SidewalkSampleApp */ = {
+			isa = PBXGroup;
+			children = (
+				399C16C82863293E00881B34 /* AmazonAuthService.swift */,
+				399C16CA2863293E00881B34 /* SimpleLogger.swift */,
+				399C16CD2863293E00881B34 /* SidewalkEnvironment.swift */,
+				399C16D42863293E00881B34 /* SidewalkSampleApp.swift */,
+				399C16CE2863293E00881B34 /* View */,
+				399C16C32863293E00881B34 /* ViewModel */,
+				399C16CB2863293E00881B34 /* Preview Content */,
+				399C16D52863293E00881B34 /* Info.plist */,
+				399C16C92863293E00881B34 /* Assets.xcassets */,
+			);
+			path = SidewalkSampleApp;
+			sourceTree = "<group>";
+		};
+		399C16C32863293E00881B34 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				399C16C42863293E00881B34 /* ScanViewModel.swift */,
+				399C16C52863293E00881B34 /* ConnectionViewModel.swift */,
+				399C16C62863293E00881B34 /* MenuViewModel.swift */,
+				399C16C72863293E00881B34 /* DeregisterViewModel.swift */,
+				FD333D7F2994CE6E0098E064 /* CoverageTestViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		399C16CB2863293E00881B34 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				399C16CC2863293E00881B34 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		399C16CE2863293E00881B34 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				399C16CF2863293E00881B34 /* ScanView.swift */,
+				399C16D02863293E00881B34 /* DeregisterView.swift */,
+				399C16D12863293E00881B34 /* ConnectionView.swift */,
+				399C16D22863293E00881B34 /* MenuView.swift */,
+				399C16D32863293E00881B34 /* LoadingView.swift */,
+				FD333D7D2994CE4C0098E064 /* CoverageTestView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1E9E39E224EA8B3300F3CE47 /* SidewalkSampleApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E9E3A0D24EA8B3400F3CE47 /* Build configuration list for PBXNativeTarget "SidewalkSampleApp" */;
+			buildPhases = (
+				1E9E39DF24EA8B3300F3CE47 /* Sources */,
+				1E9E39E024EA8B3300F3CE47 /* Frameworks */,
+				1E9E39E124EA8B3300F3CE47 /* Resources */,
+				1E13203B25B09FC8009F73A0 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SidewalkSampleApp;
+			productName = SidewalkSampleApp;
+			productReference = 1E9E39E324EA8B3300F3CE47 /* SidewalkSampleApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1E9E39DB24EA8B3300F3CE47 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = Amazon;
+				TargetAttributes = {
+					1E9E39E224EA8B3300F3CE47 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+				};
+			};
+			buildConfigurationList = 1E9E39DE24EA8B3300F3CE47 /* Build configuration list for PBXProject "SidewalkSampleApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1E9E39DA24EA8B3300F3CE47;
+			productRefGroup = 1E9E39E424EA8B3300F3CE47 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1E9E39E224EA8B3300F3CE47 /* SidewalkSampleApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1E9E39E124EA8B3300F3CE47 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				399C16DD2863293E00881B34 /* Preview Assets.xcassets in Resources */,
+				399C16DB2863293E00881B34 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1E9E39DF24EA8B3300F3CE47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				399C16D82863293E00881B34 /* MenuViewModel.swift in Sources */,
+				399C16E02863293E00881B34 /* DeregisterView.swift in Sources */,
+				FD333D7E2994CE4C0098E064 /* CoverageTestView.swift in Sources */,
+				FD333D802994CE6E0098E064 /* CoverageTestViewModel.swift in Sources */,
+				399C16DF2863293E00881B34 /* ScanView.swift in Sources */,
+				399C16D72863293E00881B34 /* ConnectionViewModel.swift in Sources */,
+				399C16D92863293E00881B34 /* DeregisterViewModel.swift in Sources */,
+				399C16E32863293E00881B34 /* LoadingView.swift in Sources */,
+				399C16DA2863293E00881B34 /* AmazonAuthService.swift in Sources */,
+				399C16E42863293E00881B34 /* SidewalkSampleApp.swift in Sources */,
+				399C16E12863293E00881B34 /* ConnectionView.swift in Sources */,
+				399C16E22863293E00881B34 /* MenuView.swift in Sources */,
+				399C16DE2863293E00881B34 /* SidewalkEnvironment.swift in Sources */,
+				399C16D62863293E00881B34 /* ScanViewModel.swift in Sources */,
+				399C16DC2863293E00881B34 /* SimpleLogger.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1E9E3A0B24EA8B3400F3CE47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1E9E3A0C24EA8B3400F3CE47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1E9E3A0E24EA8B3400F3CE47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"SidewalkSampleApp/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				INFOPLIST_FILE = SidewalkSampleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1E9E3A0F24EA8B3400F3CE47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"SidewalkSampleApp/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				INFOPLIST_FILE = SidewalkSampleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1E9E39DE24EA8B3300F3CE47 /* Build configuration list for PBXProject "SidewalkSampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E9E3A0B24EA8B3400F3CE47 /* Debug */,
+				1E9E3A0C24EA8B3400F3CE47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1E9E3A0D24EA8B3400F3CE47 /* Build configuration list for PBXNativeTarget "SidewalkSampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E9E3A0E24EA8B3400F3CE47 /* Debug */,
+				1E9E3A0F24EA8B3400F3CE47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1E9E39DB24EA8B3300F3CE47 /* Project object */;
+}
