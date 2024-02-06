@@ -37,7 +37,7 @@ final class AmazonAuthService {
 
     @Published var authState: AuthState = .none
 
-    /// Updates the internal auth status using a authroization request
+    /// Updates the internal auth status using a authroization request.
     func updateAuthState() {
         let request: AMZNAuthorizeRequest = AMZNAuthorizeRequest()
         request.interactiveStrategy = .never
@@ -53,7 +53,7 @@ final class AmazonAuthService {
         lwaAuthorize(request: request)
     }
 
-    /// Logs the user out
+    /// Logs the user out.
     func logout() {
         AMZNAuthorizationManager.shared().signOut { error in
             if let error = error {

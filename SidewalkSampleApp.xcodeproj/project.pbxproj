@@ -26,6 +26,7 @@
 		399C16E42863293E00881B34 /* SidewalkSampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C16D42863293E00881B34 /* SidewalkSampleApp.swift */; };
 		4802D62A2942C63500E5AB53 /* OpenSSL.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4802D6292942C63400E5AB53 /* OpenSSL.xcframework */; };
 		4802D62B2942C63500E5AB53 /* OpenSSL.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4802D6292942C63400E5AB53 /* OpenSSL.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		48731F6A29EFAF7000A1A820 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48731F6929EFAF6F00A1A820 /* Utils.swift */; };
 		48AEB09A299CC65E00AEA082 /* LoginWithAmazon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48AEB099299CC65D00AEA082 /* LoginWithAmazon.framework */; };
 		FD333D7E2994CE4C0098E064 /* CoverageTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD333D7D2994CE4C0098E064 /* CoverageTestView.swift */; };
 		FD333D802994CE6E0098E064 /* CoverageTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD333D7F2994CE6E0098E064 /* CoverageTestViewModel.swift */; };
@@ -66,6 +67,7 @@
 		399C16D42863293E00881B34 /* SidewalkSampleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidewalkSampleApp.swift; sourceTree = "<group>"; };
 		399C16D52863293E00881B34 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4802D6292942C63400E5AB53 /* OpenSSL.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = OpenSSL.xcframework; path = Frameworks/OpenSSL.xcframework; sourceTree = "<group>"; };
+		48731F6929EFAF6F00A1A820 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		48AEB099299CC65D00AEA082 /* LoginWithAmazon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LoginWithAmazon.framework; path = Frameworks/LoginWithAmazon.framework; sourceTree = "<group>"; };
 		FD333D7D2994CE4C0098E064 /* CoverageTestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverageTestView.swift; sourceTree = "<group>"; };
 		FD333D7F2994CE6E0098E064 /* CoverageTestViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverageTestViewModel.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 		399C16C22863293E00881B34 /* SidewalkSampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				48731F6929EFAF6F00A1A820 /* Utils.swift */,
 				399C16C82863293E00881B34 /* AmazonAuthService.swift */,
 				399C16CA2863293E00881B34 /* SimpleLogger.swift */,
 				399C16CD2863293E00881B34 /* SidewalkEnvironment.swift */,
@@ -241,6 +244,7 @@
 				399C16DF2863293E00881B34 /* ScanView.swift in Sources */,
 				399C16D72863293E00881B34 /* ConnectionViewModel.swift in Sources */,
 				399C16D92863293E00881B34 /* DeregisterViewModel.swift in Sources */,
+				48731F6A29EFAF7000A1A820 /* Utils.swift in Sources */,
 				399C16E32863293E00881B34 /* LoadingView.swift in Sources */,
 				399C16DA2863293E00881B34 /* AmazonAuthService.swift in Sources */,
 				399C16E42863293E00881B34 /* SidewalkSampleApp.swift in Sources */,

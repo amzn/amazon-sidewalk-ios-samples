@@ -143,7 +143,7 @@ struct SidewalkDeviceRow: View {
     var body: some View {
         HStack {
             Text(device.name ?? "Unknown")
-            Text(device.endpointID)
+            Text(device.truncatedSmsn)
             Text("\(device.rssi)" )
         }.contextMenu {
             // Allow registration when the device is in Out-of-box experience mode

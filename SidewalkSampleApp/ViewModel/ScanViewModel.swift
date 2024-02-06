@@ -48,7 +48,7 @@ final class ScanViewModel: ObservableObject {
     @Published var alertModel = AlertModel(alertTitle: "", alertText: "", buttonText: "")
     @Published var showAlert = false
     @Published var showSpinner = false
-    /// Scanned devices are stored in a dictionary, so that newer scan responses of a Endpoint ID overwrite older responses
+    /// Scanned devices are stored in a dictionary, so that updated scan responses of the same SMSN overwrite previous responses.
     @Published var devices: [String: SidewalkDevice]
     @Published var connection: SidewalkConnection? = nil
     var connectionDeviceID: String = ""
@@ -81,25 +81,23 @@ final class ScanViewModel: ObservableObject {
         stopOperation()
         devices = [:]
 
-        // scan returns a Sidewalk Cancellable, which must be held in memory. If released, it will automatically cancel the operation
-        operation = sidewalk.scan(onDeviceFound: didDetectDeviceDuringScan) { result in
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else {
-                    return
-                }
+        // scan returns a SidewalkCancellable, which must be held in memory. If released, it will automatically cancel the operation.
+        operation = sidewalk.scan(onDeviceFound: didDetectDeviceDuringScan) { [weak self] result in
+            DispatchQueue.main.async {
+                guard let strongSelf = self else { return }
                 switch result {
                 case .success:
-                    if case let .scanning(id) = self.scanState, id == scanId {
-                        self.scanState = .completed
+                    if case let .scanning(id) = strongSelf.scanState, id == scanId {
+                        strongSelf.scanState = .completed
                     }
                 case .failure(let error):
-                    if case let .scanning(id) = self.scanState, id == scanId {
-                        self.scanState = .error
+                    if case let .scanning(id) = strongSelf.scanState, id == scanId {
+                        strongSelf.scanState = .error
                     }
-                    self.alertModel = AlertModel(alertTitle: "Failure",
-                                                 alertText: "Scanning failed with error: \(error.localizedDescription)",
-                                                 buttonText: "OK")
-                    self.showAlert = true
+                    strongSelf.alertModel = AlertModel(alertTitle: "Failure",
+                                                       alertText: "Scanning failed with error: \(error.localizedDescription)",
+                                                       buttonText: "OK")
+                    strongSelf.showAlert = true
                 }
             }
         }
@@ -116,23 +114,24 @@ final class ScanViewModel: ObservableObject {
     func register(device: SidewalkDevice) {
         stopOperation()
 
-        // register returns a Sidewalk Cancellable, which must be held in memory. If released, it will automatically cancel the operation
-        operation = sidewalk.register(device: device) { result in
-            DispatchQueue.main.async { [weak self] in
+        // register returns a SidewalkCancellable, which must be held in memory. If released, it will automatically cancel the operation.
+        operation = sidewalk.registerDevice(smsn: device.truncatedSmsn) { [weak self] result in
+            DispatchQueue.main.async {
+                guard let strongSelf = self else { return }
                 switch result {
-                case .success((let wirelessDeviceId, let sidewalkId)):
-                    self?.alertModel = AlertModel(alertTitle: "Success",
-                                                  alertText: "Registration for \(sidewalkId) succeeded with Wireless Device ID: \(wirelessDeviceId)",
-                                                  buttonText: "OK") {
-                        self?.scanForDevices()
+                case .success(let detail):
+                    strongSelf.alertModel = AlertModel(alertTitle: "Success",
+                                                       alertText: "\(device.truncatedSmsn) \(detail.message)",
+                                                       buttonText: "OK") {
+                        strongSelf.scanForDevices()
                     }
                 case .failure(let error):
-                    self?.alertModel = AlertModel(alertTitle: "Failure",
-                                                  alertText: "Registration failed with error: \(error.localizedDescription)",
-                                                  buttonText: "OK")
+                    strongSelf.alertModel = AlertModel(alertTitle: "Failure",
+                                                       alertText: "Registration failed with error: \(error.localizedDescription)",
+                                                       buttonText: "OK")
                 }
-                self?.showSpinner = false
-                self?.showAlert = true
+                strongSelf.showSpinner = false
+                strongSelf.showAlert = true
             }
         }
         showSpinner = true
@@ -142,22 +141,23 @@ final class ScanViewModel: ObservableObject {
     func secureConnect(device: SidewalkDevice) {
         stopOperation()
 
-        // secureConnect returns a Sidewalk Cancellable, which must be held in memory. If released, it will automatically cancel the operation
-        operation = sidewalk.secureConnect(device: device) { result in
-            DispatchQueue.main.async { [weak self] in
-                self?.showSpinner = false
+        // secureConnect returns a SidewalkCancellable, which must be held in memory. If released, it will automatically cancel the operation.
+        operation = sidewalk.secureConnectDevice(smsn: device.truncatedSmsn) { [weak self] result in
+            DispatchQueue.main.async {
+                guard let strongSelf = self else { return }
+                strongSelf.showSpinner = false
                 switch result {
                 case .success(let connection):
-                    self?.connection = connection
-                    self?.showConnection = true
-                    self?.connectionDeviceID = device.endpointID
-                    self?.connectionDeviceIsRegistered = device.beaconInfo.deviceMode != .oobe
+                    strongSelf.connection = connection
+                    strongSelf.showConnection = true
+                    strongSelf.connectionDeviceID = device.truncatedSmsn
+                    strongSelf.connectionDeviceIsRegistered = device.beaconInfo.deviceMode != .oobe
 
                 case .failure(let error):
-                    self?.alertModel = AlertModel(alertTitle: "Failure",
-                                                  alertText: "Establish Secure Connection failed with error: \(error.localizedDescription)",
-                                                  buttonText: "OK")
-                    self?.showAlert = true
+                    strongSelf.alertModel = AlertModel(alertTitle: "Failure",
+                                                       alertText: "Establish Secure Connection failed with error: \(error.localizedDescription)",
+                                                       buttonText: "OK")
+                    strongSelf.showAlert = true
                 }
             }
         }
@@ -167,23 +167,9 @@ final class ScanViewModel: ObservableObject {
     /// Scanned device callback.
     private func didDetectDeviceDuringScan(device: SidewalkDevice) {
         DispatchQueue.main.async {
-            // We are filtering based off of the device's endpoint ID
-            self.devices[device.endpointID] = device
+            // We are filtering based off of the device's SMSN value.
+            self.devices[device.truncatedSmsn] = device
         }
     }
 
-}
-
-struct AlertModel {
-    let alertTitle: String
-    let alertText: String
-    let buttonText: String
-    let buttonAction: (() -> Void)?
-
-    init(alertTitle: String, alertText: String, buttonText: String, buttonAction: (() -> Void)? = nil) {
-        self.alertTitle = alertTitle
-        self.alertText = alertText
-        self.buttonText = buttonText
-        self.buttonAction = buttonAction
-    }
 }

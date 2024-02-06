@@ -104,7 +104,7 @@ final class CoverageTestViewModel: ObservableObject {
             return
         }
         showSpinner = true
-        // secureConnect returns a Sidewalk Cancellable, which must be held in memory. If released, it will automatically cancel the operation
+        // secureConnect returns a SidewalkCancellable, which must be held in memory. If released, it will automatically cancel the operation.
         let operation = sidewalk.secureConnect(device: device) { [weak self] result in
             DispatchQueue.main.async {
                 guard let strongSelf = self else { return }
