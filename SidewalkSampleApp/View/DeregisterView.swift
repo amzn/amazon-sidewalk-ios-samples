@@ -44,7 +44,7 @@ struct DeregisterView<Content>: View where Content: View {
                             EmptyView()
                         case .input:
                             InputView(state: $viewModel.state,
-                                      sidewalkId: $viewModel.sidewalkId,
+                                      smsn: $viewModel.smsn,
                                       deregisterAction: viewModel.deregister)
                         case .loading:
                             LoadingView()
@@ -68,13 +68,13 @@ struct DeregisterView<Content>: View where Content: View {
 
     private struct InputView: View {
         @Binding var state: DeregisterViewModel.State
-        @Binding var sidewalkId: String
+        @Binding var smsn: String
         let deregisterAction: () -> Void
 
         var body: some View {
             VStack {
                 Text("Deregister").font(.title)
-                TextField("Sidewalk ID", text: $sidewalkId).textFieldStyle(.roundedBorder)
+                TextField("SMSN Value", text: $smsn).textFieldStyle(.roundedBorder)
                 Divider()
                 HStack {
                     Spacer()

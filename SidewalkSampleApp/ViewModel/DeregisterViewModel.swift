@@ -29,7 +29,7 @@ final class DeregisterViewModel: ObservableObject {
     }
 
     let sidewalk: Sidewalk
-    @Published var sidewalkId: String = ""
+    @Published var smsn: String = ""
     @Published var state: State
     var operation: SidewalkCancellable? = nil
 
@@ -38,19 +38,17 @@ final class DeregisterViewModel: ObservableObject {
         state = .hidden
     }
 
-    /// Deregister a Sidewalk device via a Sidewalk ID.
+    /// Deregister a Sidewalk device via a SMSN.
     func deregister() {
-        // The sidewalk ID is expected to be provided by the consuming application.
-        operation = sidewalk.deregister(sidewalkID: sidewalkId, factoryReset: true) { result in
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else {
-                    return
-                }
+        // The smsn is expected to be provided by the consuming application.
+        operation = sidewalk.deregisterDevice(smsn: smsn, factoryReset: true) { [weak self] result in
+            DispatchQueue.main.async {
+                guard let strongSelf = self else { return }
                 switch result {
                 case .success:
-                    self.state = .confirmation(.success("Deregistration for \(self.sidewalkId) succeeded"))
+                    strongSelf.state = .confirmation(.success("Deregistration for \(strongSelf.smsn) succeeded"))
                 case .failure(let error):
-                    self.state = .confirmation(.failure(error))
+                    strongSelf.state = .confirmation(.failure(error))
                 }
             }
         }

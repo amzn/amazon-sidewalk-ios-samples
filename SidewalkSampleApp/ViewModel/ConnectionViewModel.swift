@@ -50,26 +50,27 @@ final class ConnectionViewModel: ObservableObject {
 
     /// Register a Sidewalk device that is already securely connected.
     ///
-    /// Prefer using `register(connection:completion:)` over `register(device:completion:)` for
+    /// Prefer using `registerDevice(connection:completion:)` over `registerDevice(smsn:completion:)` for
     /// securely connected devices.
     func register() {
         operation?.cancel()
-        operation = sidewalk.register(connection: sidewalkConnection) { result in
-            DispatchQueue.main.async { [weak self] in
+        operation = sidewalk.registerDevice(connection: sidewalkConnection) { [weak self] result in
+            DispatchQueue.main.async {
+                guard let strongSelf = self else { return }
                 switch result {
-                case .success((let wirelessDeviceId, let sidewalkId)):
-                    self?.alertModel = AlertModel(alertTitle: "Success",
-                                                  alertText: "Registration for \(sidewalkId) succeeded with Wireless Device ID: \(wirelessDeviceId)",
-                                                  buttonText: "OK") {
-                        self?.showSelf = false
+                case .success(let detail):
+                    strongSelf.alertModel = AlertModel(alertTitle: "Success",
+                                                       alertText: "\(strongSelf.deviceID) \(detail.message)",
+                                                       buttonText: "OK") {
+                        strongSelf.showSelf = false
                     }
                 case .failure(let error):
-                    self?.alertModel = AlertModel(alertTitle: "Failure",
-                                                  alertText: "Registration failed with error: \(error.localizedDescription)",
-                                                  buttonText: "OK")
+                    strongSelf.alertModel = AlertModel(alertTitle: "Failure",
+                                                       alertText: "Registration failed with error: \(error.localizedDescription)",
+                                                       buttonText: "OK")
                 }
-                self?.showSpinner = false
-                self?.showAlert = true
+                strongSelf.showSpinner = false
+                strongSelf.showAlert = true
             }
         }
         showSpinner = true
@@ -85,11 +86,9 @@ final class ConnectionViewModel: ObservableObject {
         let payloadNoSpace = payloadRaw.filter { !$0.isWhitespace }
         let payload = Data(asciiEncoded: payloadNoSpace)
         let message = SidewalkMessage(id: id, type: type, message: payload)
-        operation = sidewalkConnection.write(message: message, completion: { result in
-            DispatchQueue.main.async { [weak self] in
-                guard let strongSelf = self else {
-                    return
-                }
+        operation = sidewalkConnection.write(message: message, completion: { [weak self] result in
+            DispatchQueue.main.async {
+                guard let strongSelf = self else { return }
                 switch result {
                 case .success:
                     let str = message.message.asciiEncodedString()
@@ -97,8 +96,8 @@ final class ConnectionViewModel: ObservableObject {
                     strongSelf.messages.append(Message(title: "\(timestamp) Write- \(str)"))
                 case .failure(let error):
                     strongSelf.alertModel = AlertModel(alertTitle: "Write failed",
-                                                  alertText: "Write failed with error: \(error.localizedDescription)",
-                                                  buttonText: "OK")
+                                                       alertText: "Write failed with error: \(error.localizedDescription)",
+                                                       buttonText: "OK")
                     strongSelf.showAlert = true
                 }
             }
@@ -109,18 +108,15 @@ final class ConnectionViewModel: ObservableObject {
     func subscribeMessages() {
         subscriptionStatus = true
         operationSubscribe = sidewalkConnection.subscribe(onMessageReceived: { [weak self] message in
-            DispatchQueue.main.async { [weak self] in
-                guard let strongSelf = self else {
-                    return
-                }
+            DispatchQueue.main.async {
+                guard let strongSelf = self else { return }
+
                 let str = message.message.asciiEncodedString()
                 let timestamp = strongSelf.getTimestamp()
                 strongSelf.messages.append(Message(title: "\(timestamp) Read- \(str)"))
             }
         }, completion: { [weak self] result in
-            guard let strongSelf = self else {
-                return
-            }
+            guard let strongSelf = self else { return }
 
             let alertTitle: String = "Subscription terminated"
             var alertDescription: String = ""
